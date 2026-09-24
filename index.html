@@ -74,47 +74,96 @@ tr:hover td{background:#fafbfd}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .footer{color:var(--muted);font-size:12px;margin-top:26px;padding:18px 4px;text-align:center;border-top:1px solid var(--border)}
 .footer b{color:var(--ink-2)}
-@media(max-width:820px){body{padding:16px}.stats-row,.grid-2{grid-template-columns:1fr}}
+/* TL;DR executive block */
+.tldr{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px 28px;margin-bottom:20px;display:grid;grid-template-columns:1.4fr 1fr;gap:32px;position:relative;overflow:hidden}
+.tldr::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--red) 0%,var(--blue) 100%)}
+.tldr-tag,.ask-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:4px 10px;border-radius:20px;background:var(--red-bg);color:var(--red-ink);margin-bottom:12px}
+.ask-tag{background:var(--blue-bg);color:var(--blue-ink)}
+.tldr p{font-size:14px;line-height:1.6;color:var(--ink);margin-bottom:10px}
+.tldr p b{font-weight:600}
+.tldr p.tldr-crit{font-size:13px;color:var(--ink-2);padding:10px 14px;background:var(--red-bg);border-radius:8px;margin-top:14px;margin-bottom:0}
+.tldr p.tldr-crit b{color:var(--red-ink)}
+.tldr-right{border-left:1px solid var(--border);padding-left:24px}
+.ask-list{list-style:none;padding:0;margin:0}
+.ask-list li{font-size:13px;line-height:1.55;color:var(--ink-2);padding:8px 0 8px 22px;border-bottom:1px solid var(--border);position:relative}
+.ask-list li:last-child{border-bottom:0}
+.ask-list li::before{content:"→";position:absolute;left:0;top:8px;color:var(--blue);font-weight:700}
+.ask-list li b{color:var(--ink);font-weight:600}
+/* horizontal bar chart */
+.chart{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.bar-row{display:grid;grid-template-columns:150px 1fr 160px;gap:14px;align-items:center;font-size:13px}
+.bar-label{color:var(--ink);font-weight:500}
+.bar-track{height:22px;background:var(--strip);border-radius:6px;overflow:hidden;position:relative}
+.bar-track span{display:block;height:100%;background:linear-gradient(90deg,var(--red) 0%,#ff6b8a 100%);border-radius:6px;transition:width .3s}
+.bar-val{color:var(--ink);font-weight:600;font-size:14px;text-align:right}
+.bar-val .bar-exp{color:var(--muted);font-weight:500;font-size:12px;margin-left:6px}
+@media(max-width:820px){body{padding:16px}.stats-row,.grid-2,.tldr{grid-template-columns:1fr}.tldr-right{border-left:0;border-top:1px solid var(--border);padding-left:0;padding-top:18px}.bar-row{grid-template-columns:100px 1fr 110px}}
 </style></head><body><div class="container">
 
 <div class="header">
-  <div class="eyebrow">BackOffice Franquias · Relatório interno · auto-atualizado</div>
+  <div class="eyebrow">Diretoria · BackOffice Franquias · Relatório executivo</div>
   <h1>Casos Pontuais de Precificação — Franquias</h1>
   <div class="subtitle">Consolidação do formulário aberto às franqueadas</div>
   <div class="meta">
     <span><b>Rayanne Oliveira</b></span>
-    <span>Última atualização <b>24/09/2026 16:00</b></span>
-    <span><b>12</b> respostas</span>
-    <span><b>5</b> franqueadas · <b>5</b> destinos · <b>≈37</b> imóveis</span>
+    <span>Última atualização <b>24/09/2026 16:04</b></span>
+    <span><b>12</b> respostas · <b>5</b> franqueadas · <b>5</b> destinos · <b>≈37</b> imóveis</span>
   </div>
 </div>
 
-<div class="note"><div><b>Fonte:</b> Google Forms “Precificação — Casos Pontuais (Franquias)” → Sheets vinculado. Este relatório é regenerado automaticamente pelo script <code>gerar.py</code> — cron a cada 30 min.</div></div>
+<div class="tldr">
+  <div class="tldr-left">
+    <div class="tldr-tag">TL;DR</div>
+    <p>Em pouco mais de <b>48 horas</b>, <b>5 franqueadas</b> reportaram <b>≈37 imóveis</b> subprecificados em <b>5 destinos</b>. <b>75%</b> dos casos concentram-se no <b>Réveillon</b> — janela crítica de comercialização até 30/09. A exposição estimada de receita não capturada é de <b>R$ 37.950</b>.</p>
+    <p class="tldr-crit">Concentração: <b>Naihana Loyola Andriani</b> responde por <b>67%</b> das queixas — checar se é sinal de destino problemático (Maceió/Réveillon) ou viés amostral.</p>
+  </div>
+  <div class="tldr-right">
+    <div class="ask-tag">Ask · Diretoria</div>
+    <ul class="ask-list">
+      <li>Aprovar <b>fila expressa Revenue para Maceió</b> até 30/09 (8 imóveis, exposição estimada <b>R$ 10.800</b>).</li>
+      <li>Definir <b>SLA de resposta</b> (sugestão: 5 dias úteis) e dono formal do funil (Revenue).</li>
+      <li>Avaliar <b>squad dedicado a eventos-âncora</b> (Nubank Parque SP, Réveillon Celebration AL).</li>
+    </ul>
+  </div>
+</div>
 
 <div class="stats-row">
-  <div class="stat blue">
-    <div class="label">Respostas coletadas</div>
-    <div class="value">12</div>
+  <div class="stat">
+    <div class="label">Exposição estimada</div>
+    <div class="value">R$ 37.950</div>
     <div class="bar"><span style="width:100%"></span></div>
-    <div class="delta">De <b>5</b> franqueadas distintas</div>
+    <div class="delta">Premissa: <b>30%</b> de gap × <b>5</b> noites × diária média por destino</div>
   </div>
   <div class="stat orange">
     <div class="label">Imóveis para revisão</div>
     <div class="value">≈37</div>
     <div class="bar"><span style="width:80%"></span></div>
-    <div class="delta">Unidades citadas nominalmente</div>
+    <div class="delta">Unidades <b>únicas</b> citadas nominalmente</div>
   </div>
   <div class="stat">
-    <div class="label">Casos ligados ao Réveillon</div>
+    <div class="label">Casos no Réveillon</div>
     <div class="value">75<small>%</small></div>
     <div class="bar"><span style="width:75%"></span></div>
     <div class="delta">Janela crítica: <b>até 30/09</b></div>
   </div>
-  <div class="stat green">
-    <div class="label">Destinos afetados</div>
-    <div class="value">5</div>
+  <div class="stat blue">
+    <div class="label">Respostas coletadas</div>
+    <div class="value">12</div>
     <div class="bar"><span style="width:100%"></span></div>
-    <div class="delta">Cidades distintas</div>
+    <div class="delta">Status: <b>12</b> Aberto</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="strip">Concentração</div>
+  <h2>Distribuição por destino</h2>
+  <div class="card-sub">Volume de casos e exposição estimada em R$ por cidade. Ordenado por volume.</div>
+  <div class="chart">
+    <div class="bar-row"><div class="bar-label">Maceió</div><div class="bar-track"><span style="width:100%"></span></div><div class="bar-val">8 <span class="bar-exp">R$ 10.800</span></div></div>
+<div class="bar-row"><div class="bar-label">Recife</div><div class="bar-track"><span style="width:12%"></span></div><div class="bar-val">1 <span class="bar-exp">R$ 9.900</span></div></div>
+<div class="bar-row"><div class="bar-label">Balneário Piçarras</div><div class="bar-track"><span style="width:12%"></span></div><div class="bar-val">1 <span class="bar-exp">R$ 600</span></div></div>
+<div class="bar-row"><div class="bar-label">São Paulo</div><div class="bar-track"><span style="width:12%"></span></div><div class="bar-val">1 <span class="bar-exp">R$ 13.650</span></div></div>
+<div class="bar-row"><div class="bar-label">Brasília</div><div class="bar-track"><span style="width:12%"></span></div><div class="bar-val">1 <span class="bar-exp">R$ 3.000</span></div></div>
   </div>
 </div>
 
@@ -138,21 +187,22 @@ tr:hover td{background:#fafbfd}
 <div class="card">
   <div class="strip">Detalhamento</div>
   <h2>Todas as respostas — com fala completa</h2>
-  <div class="card-sub">Uma linha por resposta do formulário, ordem cronológica. Coluna “Fala” traz o texto integral do campo “Problema de precificação”.</div>
+  <div class="card-sub">Uma linha por resposta. Coluna “Status” lida do campo homônimo na planilha — adicione essa coluna no Sheets para rastrear andamento (Aberto / Em análise / Respondido / Fechado). Default: <b>Aberto</b>.</div>
   <div style="overflow-x:auto">
   <table class="respostas">
     <thead><tr>
-      <th style="width:18%">Franqueada</th>
-      <th style="width:12%">Destino</th>
-      <th style="width:20%">Imóveis</th>
+      <th style="width:16%">Franqueada</th>
+      <th style="width:11%">Destino</th>
+      <th style="width:18%">Imóveis</th>
+      <th class="right" style="width:9%">Status</th>
       <th>Fala</th>
     </tr></thead>
     <tbody>
-<tr><td><b>Débora Renata Gomes Soares</b></td><td>Recife</td><td class="imv">GLN0805 · IAA502 · IAA503 · IAA504 · IAA1002 · IAA1003 · IAA1004 · PILB0701 · GOL1705 · BCM0403 · CAV0411</td><td class="fala"><details><summary><span class="prev">Diárias bases desalinhadas ao mercado (alta temporada no Nordeste) e diárias de feriado. Feriado 12/10, 02/11,…</span></summary><div class="fala-full">Diárias bases desalinhadas ao mercado (alta temporada no Nordeste) e diárias de feriado.
+<tr><td><b>Débora Renata Gomes Soares</b></td><td>Recife</td><td class="imv">GLN0805 · IAA502 · IAA503 · IAA504 · IAA1002 · IAA1003 · IAA1004 · PILB0701 · GOL1705 · BCM0403 · CAV0411</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">Diárias bases desalinhadas ao mercado (alta temporada no Nordeste) e diárias de feriado. Feriado 12/10, 02/11,…</span></summary><div class="fala-full">Diárias bases desalinhadas ao mercado (alta temporada no Nordeste) e diárias de feriado.
 Feriado 12/10, 02/11, 15/11, 08/12, 25/12, 31/12, além do carnaval.
 Somos a única plataforma de menor valor no mercado em Recife.</div></details></td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">MIN0709</td><td class="fala"><details><summary><span class="prev">Imóvel na Ponta Verde, na melhor localização do ano novo, próximo as festas e aos fogos com diária de 700,00 p…</span></summary><div class="fala-full">Imóvel na Ponta Verde, na melhor localização do ano novo, próximo as festas e aos fogos com diária de 700,00 para 4 pessoas no ano novo, o proprietário irá surtar!</div></details></td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">MIN0709</td><td class="fala"><details><summary><span class="prev">Olá, time! Tudo bem?  Quero pedir uma revisão da estratégia de preço do imóvel MIN0709 para o Réveillon. O pro…</span></summary><div class="fala-full">Olá, time! Tudo bem?
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">MIN0709</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">Imóvel na Ponta Verde, na melhor localização do ano novo, próximo as festas e aos fogos com diária de 700,00 p…</span></summary><div class="fala-full">Imóvel na Ponta Verde, na melhor localização do ano novo, próximo as festas e aos fogos com diária de 700,00 para 4 pessoas no ano novo, o proprietário irá surtar!</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">MIN0709</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">Olá, time! Tudo bem?  Quero pedir uma revisão da estratégia de preço do imóvel MIN0709 para o Réveillon. O pro…</span></summary><div class="fala-full">Olá, time! Tudo bem?
 
 Quero pedir uma revisão da estratégia de preço do imóvel MIN0709 para o Réveillon. O proprietário está insatisfeito, e o valor praticado está bem abaixo do que se vê na região.
 
@@ -191,11 +241,11 @@ O apartamento foi reformado recentemente, o que deveria aumentar o seu valor em 
 O proprietário está insatisfeito. Ele entende que o imóvel está sendo desvalorizado em relação aos vizinhos, mesmo tendo investido na reforma e estando em uma das localizações mais fortes da cidade, justamente na data de maior procura do ano e também em todo período de alta temporada.
 
 Dessa forma, peço revisão na precificação desse imóvel nos meses de alta temporada e se podemos tomar alguma providência em relação a reserva efetuada com valor praticado bem abaixo da média da região.</div></details></td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">VZA0106</td><td class="fala"><details><summary><span class="prev">Diária do período do ano novo com pacote de 3500 ( bruto sem descontos )  no ano novo, no mesmo prédio um apar…</span></summary><div class="fala-full">Diária do período do ano novo com pacote de 3500 ( bruto sem descontos )  no ano novo, no mesmo prédio um apartamento similar está por 4500.  O apartamento é praticamente na praia, com fogos na varanda. Precisa subir a diária, ainda terá  O Reveillon Celebration com Luan Santana, Menos é Mais e Zé Vaqueiro.</div></details></td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">VZA0603</td><td class="fala"><details><summary><span class="prev">Diária do período do ano novo com pacote de 4500 ( bruto sem descontos )  no ano novo.  O apartamento é pratic…</span></summary><div class="fala-full">Diária do período do ano novo com pacote de 4500 ( bruto sem descontos )  no ano novo.  O apartamento é praticamente na praia, com fogos na varanda. Precisa subir a diária, ainda terá  a maior festa privada de Maceio, o  Reveillon Celebration com Luan Santana, Menos é Mais e Zé Vaqueiro.</div></details></td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">LOE0315</td><td class="fala"><details><summary><span class="prev">TArifa ano novo fora do preço ideal, Apartamento beira mar, ao lado do maior reveillon privado de Maceio, com …</span></summary><div class="fala-full">TArifa ano novo fora do preço ideal, Apartamento beira mar, ao lado do maior reveillon privado de Maceio, com Luan Santana, Menos é Mais e Zé vaqueiro. Alta demanda por acesso a festa a menos de 1km do apartamento.</div></details></td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">TAU0204</td><td class="fala"><details><summary><span class="prev">Apartamento em condomínio beira mar, em frente a queima de fogos da orla no ano novo, muita oportunidade de me…</span></summary><div class="fala-full">Apartamento em condomínio beira mar, em frente a queima de fogos da orla no ano novo, muita oportunidade de melhoria do tarifário do ano novo,</div></details></td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">LOE0502</td><td class="fala"><details><summary><span class="prev">Olá, time! Tudo bem?  Quero pedir uma revisão do preço do LOE0502 para o Réveillon. Hoje ele está como a opção…</span></summary><div class="fala-full">Olá, time! Tudo bem?
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">VZA0106</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">Diária do período do ano novo com pacote de 3500 ( bruto sem descontos )  no ano novo, no mesmo prédio um apar…</span></summary><div class="fala-full">Diária do período do ano novo com pacote de 3500 ( bruto sem descontos )  no ano novo, no mesmo prédio um apartamento similar está por 4500.  O apartamento é praticamente na praia, com fogos na varanda. Precisa subir a diária, ainda terá  O Reveillon Celebration com Luan Santana, Menos é Mais e Zé Vaqueiro.</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">VZA0603</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">Diária do período do ano novo com pacote de 4500 ( bruto sem descontos )  no ano novo.  O apartamento é pratic…</span></summary><div class="fala-full">Diária do período do ano novo com pacote de 4500 ( bruto sem descontos )  no ano novo.  O apartamento é praticamente na praia, com fogos na varanda. Precisa subir a diária, ainda terá  a maior festa privada de Maceio, o  Reveillon Celebration com Luan Santana, Menos é Mais e Zé Vaqueiro.</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">LOE0315</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">TArifa ano novo fora do preço ideal, Apartamento beira mar, ao lado do maior reveillon privado de Maceio, com …</span></summary><div class="fala-full">TArifa ano novo fora do preço ideal, Apartamento beira mar, ao lado do maior reveillon privado de Maceio, com Luan Santana, Menos é Mais e Zé vaqueiro. Alta demanda por acesso a festa a menos de 1km do apartamento.</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">TAU0204</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">Apartamento em condomínio beira mar, em frente a queima de fogos da orla no ano novo, muita oportunidade de me…</span></summary><div class="fala-full">Apartamento em condomínio beira mar, em frente a queima de fogos da orla no ano novo, muita oportunidade de melhoria do tarifário do ano novo,</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">LOE0502</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">Olá, time! Tudo bem?  Quero pedir uma revisão do preço do LOE0502 para o Réveillon. Hoje ele está como a opção…</span></summary><div class="fala-full">Olá, time! Tudo bem?
 
 Quero pedir uma revisão do preço do LOE0502 para o Réveillon. Hoje ele está como a opção mais barata da região para a virada, mesmo sendo a data de maior procura do ano.
 
@@ -225,7 +275,7 @@ Peço que o time:
 
 Revise o preço do LOE0502 para o Réveillon, deixando mais perto da média da região 
 Reavalie o desconto aplicado, já que na virada a procura é alta e o desconto não é necessário para vender.</div></details></td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">DGS0508</td><td class="fala"><details><summary><span class="prev">Olá, time! Tudo bem?  Quero pedir uma revisão do preço do nosso apartamento no Edifício Refuge para o Réveillo…</span></summary><div class="fala-full">Olá, time! Tudo bem?
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">DGS0508</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">Olá, time! Tudo bem?  Quero pedir uma revisão do preço do nosso apartamento no Edifício Refuge para o Réveillo…</span></summary><div class="fala-full">Olá, time! Tudo bem?
 
 Quero pedir uma revisão do preço do nosso apartamento no Edifício Refuge para o Réveillon. Hoje ele está como a opção mais barata do mapa da região para a virada, mesmo sendo a data de maior procura do ano.
 
@@ -250,10 +300,10 @@ Isso quer dizer que:
 
 O Refuge é o mais barato de todo o mapa
 Está cerca de 31% abaixo da média da região</div></details></td></tr>
-<tr><td><b>Caroline Sorondo Vaghetti</b></td><td>Balneário Piçarras</td><td class="imv">SLM0012</td><td class="fala"><details><summary><span class="prev">Taxa de limpeza correto 90,00 E o imóvel em comparação tem 1 banheiro, enquanto o nosso tem 2</span></summary><div class="fala-full">Taxa de limpeza correto 90,00
+<tr><td><b>Caroline Sorondo Vaghetti</b></td><td>Balneário Piçarras</td><td class="imv">SLM0012</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">Taxa de limpeza correto 90,00 E o imóvel em comparação tem 1 banheiro, enquanto o nosso tem 2</span></summary><div class="fala-full">Taxa de limpeza correto 90,00
 E o imóvel em comparação tem 1 banheiro, enquanto o nosso tem 2</div></details></td></tr>
-<tr><td><b>Roberta de Almeida Turra Vieira</b></td><td>São Paulo</td><td class="imv">AIM0406 · AIM0415 · TRO0154 · TPA0112 · IPR0410 · SOM1406 · VAS1009 · CEP0128 · CEP0222 · CEP0225 · CEP0226 · CEP00427 · CEP00428</td><td class="fala"><details><summary><span class="prev">As diárias dos imóveis acima, está desconexa dos grandiosos shows que vão acontecer no Nubank Parque nas próxi…</span></summary><div class="fala-full">As diárias dos imóveis acima, está desconexa dos grandiosos shows que vão acontecer no Nubank Parque nas próximas semanas. Comparamos um por um, de acordo com os eventos e com os concorrentes, e os valores estão completamente fora do mercado, muito abaixo da concorrência! Peço por favor verificar e corrigir, sobretudo os shows a seguir; IRON MAIDEN (25/10 e 27/10), MARIAH CAREY (17/11 e 18/11), SEAL (28/11), ED SHEERAN (05/12 e 06/12), SLAYER (17/12), LIONEL RICHIE (19/12), RUSH (24/01/27 e 26/01/27), JACK JOHNSON (20/02/27) e XUXA (27/02/2027 e 28/02/2027)</div></details></td></tr>
-<tr><td><b>Driely Lohanne Constantino</b></td><td>Brasília</td><td class="imv">COP0205 · GDP0010 · RJT0104 · EHS0117 · VPS0819</td><td class="fala"><details><summary><span class="prev">Precificação fora da realidade, muitos distratos acontecendo por causa disso  Diárias em média de 90,00 - 130,…</span></summary><div class="fala-full">Precificação fora da realidade, muitos distratos acontecendo por causa disso 
+<tr><td><b>Roberta de Almeida Turra Vieira</b></td><td>São Paulo</td><td class="imv">AIM0406 · AIM0415 · TRO0154 · TPA0112 · IPR0410 · SOM1406 · VAS1009 · CEP0128 · CEP0222 · CEP0225 · CEP0226 · CEP00427 · CEP00428</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">As diárias dos imóveis acima, está desconexa dos grandiosos shows que vão acontecer no Nubank Parque nas próxi…</span></summary><div class="fala-full">As diárias dos imóveis acima, está desconexa dos grandiosos shows que vão acontecer no Nubank Parque nas próximas semanas. Comparamos um por um, de acordo com os eventos e com os concorrentes, e os valores estão completamente fora do mercado, muito abaixo da concorrência! Peço por favor verificar e corrigir, sobretudo os shows a seguir; IRON MAIDEN (25/10 e 27/10), MARIAH CAREY (17/11 e 18/11), SEAL (28/11), ED SHEERAN (05/12 e 06/12), SLAYER (17/12), LIONEL RICHIE (19/12), RUSH (24/01/27 e 26/01/27), JACK JOHNSON (20/02/27) e XUXA (27/02/2027 e 28/02/2027)</div></details></td></tr>
+<tr><td><b>Driely Lohanne Constantino</b></td><td>Brasília</td><td class="imv">COP0205 · GDP0010 · RJT0104 · EHS0117 · VPS0819</td><td class="right"><span class="pill red">Aberto</span></td><td class="fala"><details><summary><span class="prev">Precificação fora da realidade, muitos distratos acontecendo por causa disso  Diárias em média de 90,00 - 130,…</span></summary><div class="fala-full">Precificação fora da realidade, muitos distratos acontecendo por causa disso 
 Diárias em média de 90,00 - 130,00 
 Reclamações diárias de proprietários reclamando sobre os valores de diárias 
 Esses que coloquei de exemplo são poucos em vista de todos que tem essa falta de precificação adequada 
@@ -262,6 +312,8 @@ Muitas unidades saindo por falta da rentabilidade adequada</div></details></td><
   </table>
   </div>
 </div>
+
+<div class="note"><div><b>Metodologia da exposição:</b> estimativa de ordem de grandeza. Diária média por destino (Maceió R$ 900 · Recife R$ 600 · SP R$ 700 · Brasília R$ 400 · Piçarras R$ 400) × 5 noites × 30% de gap declarado × nº de imóveis citados. Serve para dimensionamento, não como número contábil. Fonte primária: Google Forms → Sheets (auto-atualizado a cada 30 min).</div></div>
 
 <div class="footer">Fonte: Google Sheets (Publicar na Web · CSV) · Compilado por <b>Rayanne Oliveira</b> · BackOffice Franquias</div>
 
