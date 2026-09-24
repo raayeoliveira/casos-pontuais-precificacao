@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Casos Pontuais de Precificação — Franquias</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f0f1f9;--card:#fff;--border:#e2e5f0;--ink:#1a1f36;--ink-2:#4b5069;
+--muted:#6b7089;--navy:#0f1839;--red:#ea3a5c;--red-bg:#fce5ec;--red-ink:#b1234a;
+--green:#22795c;--green-bg:#e5f5ec;--orange:#a26411;--orange-bg:#fef1e0;
+--blue:#4b6bfb;--blue-bg:#e5ebff;--blue-ink:#2a3fb8;--strip:#f6f7fc}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;padding:32px}
+.container{max-width:1220px;margin:0 auto}
+.header{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px 32px;margin-bottom:20px}
+.header .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);font-weight:600;margin-bottom:8px}
+.header h1{font-size:26px;font-weight:600;letter-spacing:-.01em;color:var(--ink);margin-bottom:6px}
+.header .subtitle{font-size:14px;color:var(--ink-2)}
+.header .meta{margin-top:14px;font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap}
+.header .meta b{color:var(--ink);font-weight:600}
+.note{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;font-size:13px;color:var(--ink-2);margin-bottom:20px;display:flex;gap:12px;align-items:flex-start}
+.note::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:8px}
+.note b{color:var(--ink)}
+.note.warn::before{background:var(--red)}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+.stat .label{font-size:12px;color:var(--muted);font-weight:500;display:flex;align-items:center;gap:8px}
+.stat .label::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red)}
+.stat.blue .label::before{background:var(--blue)}
+.stat.orange .label::before{background:var(--orange)}
+.stat.green .label::before{background:var(--green)}
+.stat .value{font-size:32px;font-weight:600;margin-top:10px;letter-spacing:-.02em}
+.stat .value small{font-size:16px;color:var(--muted);font-weight:500;margin-left:2px}
+.stat .bar{margin-top:14px;height:4px;background:var(--strip);border-radius:4px;overflow:hidden}
+.stat .bar span{display:block;height:100%;background:var(--red);border-radius:4px}
+.stat.blue .bar span{background:var(--blue)}
+.stat.orange .bar span{background:var(--orange)}
+.stat.green .bar span{background:var(--green)}
+.stat .delta{font-size:12px;color:var(--muted);margin-top:10px}
+.stat .delta b{color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 26px;margin-bottom:20px}
+.card>h2{font-size:16px;font-weight:600;margin-bottom:4px}
+.card>.card-sub{font-size:13px;color:var(--muted);margin-bottom:18px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--strip);text-align:left;padding:10px 14px;color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+th:first-child{border-top-left-radius:8px;border-bottom-left-radius:8px;border-left:1px solid var(--border)}
+th:last-child{border-top-right-radius:8px;border-bottom-right-radius:8px;border-right:1px solid var(--border)}
+td{padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+td.imv{font-size:12px;color:var(--ink-2)}
+td.right{text-align:right}
+tr.tot td{background:var(--strip);font-weight:600}
+tr:hover td{background:#fafbfd}
+.strip{background:var(--navy);color:#fff;padding:9px 16px;border-radius:8px;font-size:11px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;margin-bottom:14px;display:inline-block}
+.pill{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px}
+.pill.red{background:var(--red-bg);color:var(--red-ink)}
+.pill.orange{background:var(--orange-bg);color:var(--orange)}
+.pill.blue{background:var(--blue-bg);color:var(--blue-ink)}
+.pill.green{background:var(--green-bg);color:var(--green)}
+.quote{padding:16px 18px;background:var(--strip);border-radius:10px;border:1px solid var(--border);margin-bottom:12px}
+.quote .who{font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:600;letter-spacing:.5px;margin-bottom:8px}
+.quote .who b{color:var(--ink)}
+.quote p{font-size:13px;line-height:1.55;white-space:pre-wrap}
+.quote .meta{font-size:11px;color:var(--muted);margin-top:10px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.footer{color:var(--muted);font-size:12px;margin-top:26px;padding:18px 4px;text-align:center;border-top:1px solid var(--border)}
+.footer b{color:var(--ink-2)}
+@media(max-width:820px){body{padding:16px}.stats-row,.grid-2{grid-template-columns:1fr}}
+</style></head><body><div class="container">
+
+<div class="header">
+  <div class="eyebrow">BackOffice Franquias · Relatório interno · auto-atualizado</div>
+  <h1>Casos Pontuais de Precificação — Franquias</h1>
+  <div class="subtitle">Consolidação do formulário aberto às franqueadas</div>
+  <div class="meta">
+    <span><b>Rayanne Oliveira</b></span>
+    <span>Última atualização <b>24/09/2026 15:44</b></span>
+    <span><b>12</b> respostas</span>
+    <span><b>5</b> franqueadas · <b>5</b> destinos · <b>≈37</b> imóveis</span>
+  </div>
+</div>
+
+<div class="note"><div><b>Fonte:</b> Google Forms “Precificação — Casos Pontuais (Franquias)” → Sheets vinculado. Este relatório é regenerado automaticamente pelo script <code>gerar.py</code> — cron a cada 30 min.</div></div>
+
+<div class="stats-row">
+  <div class="stat blue">
+    <div class="label">Respostas coletadas</div>
+    <div class="value">12</div>
+    <div class="bar"><span style="width:100%"></span></div>
+    <div class="delta">De <b>5</b> franqueadas distintas</div>
+  </div>
+  <div class="stat orange">
+    <div class="label">Imóveis para revisão</div>
+    <div class="value">≈37</div>
+    <div class="bar"><span style="width:80%"></span></div>
+    <div class="delta">Unidades citadas nominalmente</div>
+  </div>
+  <div class="stat">
+    <div class="label">Casos ligados ao Réveillon</div>
+    <div class="value">75<small>%</small></div>
+    <div class="bar"><span style="width:75%"></span></div>
+    <div class="delta">Janela crítica: <b>até 30/09</b></div>
+  </div>
+  <div class="stat green">
+    <div class="label">Destinos afetados</div>
+    <div class="value">5</div>
+    <div class="bar"><span style="width:100%"></span></div>
+    <div class="delta">Cidades distintas</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="strip">Distribuição</div>
+  <h2>Por Franqueada &amp; Destino</h2>
+  <div class="card-sub">Volume de casos por respondente e imóveis citados em cada resposta.</div>
+  <table>
+    <thead><tr><th style="width:30%">Franqueada</th><th style="width:16%">Destino</th><th class="right" style="width:8%">Casos</th><th>Imóveis citados</th></tr></thead>
+    <tbody>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="right"><span class="pill red">8</span></td><td class="imv">MIN0709 · MIN0709 · VZA0106 · VZA0603 · LOE0315 · TAU0204 · LOE0502 · DGS0508</td></tr>
+<tr><td><b>Débora Renata Gomes Soares</b></td><td>Recife</td><td class="right"><span class="pill blue">1</span></td><td class="imv">GLN0805 · IAA502 · IAA503 · IAA504 · IAA1002 · IAA1003 · IAA1004 · PILB0701 · GOL1705 · BCM0403 · CAV0411</td></tr>
+<tr><td><b>Caroline Sorondo Vaghetti</b></td><td>Balneário Piçarras</td><td class="right"><span class="pill blue">1</span></td><td class="imv">SLM0012</td></tr>
+<tr><td><b>Roberta de Almeida Turra Vieira</b></td><td>São Paulo</td><td class="right"><span class="pill blue">1</span></td><td class="imv">AIM0406 · AIM0415 · TRO0154 · TPA0112 · IPR0410 · SOM1406 · VAS1009 · CEP0128 · CEP0222 · CEP0225 · CEP0226 · CEP00427 · CEP00428</td></tr>
+<tr><td><b>Driely Lohanne Constantino</b></td><td>Brasília</td><td class="right"><span class="pill blue">1</span></td><td class="imv">COP0205 · GDP0010 · RJT0104 · EHS0117 · VPS0819</td></tr>
+<tr class="tot"><td>Total</td><td>5 destinos</td><td class="right">12</td><td class="imv">≈ 37 unidades</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div class="strip">Falas</div>
+  <h2>Últimas respostas do formulário</h2>
+  <div class="card-sub">Trechos coletados direto da planilha, ordem cronológica (últimas 12).</div>
+  <div class="grid-2">
+    <div><div class="quote"><div class="who">Recife · <b>Débora Renata Gomes Soares</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">22/09/2026 19:21:55</span></div><p>Diárias bases desalinhadas ao mercado (alta temporada no Nordeste) e diárias de feriado.
+Feriado 12/10, 02/11, 15/11, 08/12, 25/12, 31/12, além do carnaval.
+Somos a única plataforma de menor valor no mercado em Recife.</p><div class="meta">GLN0805 · IAA502 · IAA503 · IAA504 · IAA1002 · IAA1003 · IAA1004 · PILB0701 (+3)</div></div>
+<div class="quote"><div class="who">Maceió · <b>Naihana Loyola Andriani</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">22/09/2026 22:24:06</span></div><p>Imóvel na Ponta Verde, na melhor localização do ano novo, próximo as festas e aos fogos com diária de 700,00 para 4 pessoas no ano novo, o proprietário irá surtar!</p><div class="meta">MIN0709</div></div>
+<div class="quote"><div class="who">Maceió · <b>Naihana Loyola Andriani</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">22/09/2026 22:48:48</span></div><p>Olá, time! Tudo bem?
+
+Quero pedir uma revisão da estratégia de preço do imóvel MIN0709 para o Réveillon. O proprietário está insatisfeito, e o valor praticado está bem abaixo do que se vê na região.
+
+O imóvel fica na Ponta Verde, uma das áreas mais procuradas de Maceió, principalmente na virada do ano:
+
+*450 m da Praia da Ponta Verde, a praia mais famosa de Maceió
+*600 m da Cadeira Gigante, um dos principais pontos turísticos da cidade
+*1,1 km do Totem &quot;Eu Amo Maceió&quot;, onde tem queima de fogos na virada
+*1,5 km da Roda Gigante, ponto turístico forte e também local de queima de fogos
+
+Ou seja, …</p><div class="meta">MIN0709</div></div>
+<div class="quote"><div class="who">Maceió · <b>Naihana Loyola Andriani</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">22/09/2026 23:12:04</span></div><p>Diária do período do ano novo com pacote de 3500 ( bruto sem descontos )  no ano novo, no mesmo prédio um apartamento similar está por 4500.  O apartamento é praticamente na praia, com fogos na varanda. Precisa subir a diária, ainda terá  O Reveillon Celebration com Luan Santana, Menos é Mais e Zé Vaqueiro.</p><div class="meta">VZA0106</div></div>
+<div class="quote"><div class="who">Maceió · <b>Naihana Loyola Andriani</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">22/09/2026 23:13:49</span></div><p>Diária do período do ano novo com pacote de 4500 ( bruto sem descontos )  no ano novo.  O apartamento é praticamente na praia, com fogos na varanda. Precisa subir a diária, ainda terá  a maior festa privada de Maceio, o  Reveillon Celebration com Luan Santana, Menos é Mais e Zé Vaqueiro.</p><div class="meta">VZA0603</div></div>
+<div class="quote"><div class="who">Maceió · <b>Naihana Loyola Andriani</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">22/09/2026 23:15:48</span></div><p>TArifa ano novo fora do preço ideal, Apartamento beira mar, ao lado do maior reveillon privado de Maceio, com Luan Santana, Menos é Mais e Zé vaqueiro. Alta demanda por acesso a festa a menos de 1km do apartamento.</p><div class="meta">LOE0315</div></div></div>
+    <div><div class="quote"><div class="who">Maceió · <b>Naihana Loyola Andriani</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">22/09/2026 23:17:14</span></div><p>Apartamento em condomínio beira mar, em frente a queima de fogos da orla no ano novo, muita oportunidade de melhoria do tarifário do ano novo,</p><div class="meta">TAU0204</div></div>
+<div class="quote"><div class="who">Maceió · <b>Naihana Loyola Andriani</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">22/09/2026 23:19:27</span></div><p>Olá, time! Tudo bem?
+
+Quero pedir uma revisão do preço do LOE0502 para o Réveillon. Hoje ele está como a opção mais barata da região para a virada, mesmo sendo a data de maior procura do ano.
+
+🎆 A 1,1 km do Réveillon Celebration
+
+O imóvel fica em Cruz das Almas, a apenas 1,1 km do Réveillon Celebration, uma das maiores festas de virada de Maceió. O hóspede consegue ir e voltar da festa a pé, sem enfrentar trânsito ou pagar caro por carro de aplicativo na madrugada. Esse é um diferencial forte que o preço atual não está aproveitando.
+
+💰 Comparação no Airbnb (30/12/2026 a 04/01/2027, 5 noites, 1…</p><div class="meta">LOE0502</div></div>
+<div class="quote"><div class="who">Maceió · <b>Naihana Loyola Andriani</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">22/09/2026 23:29:50</span></div><p>Olá, time! Tudo bem?
+
+Quero pedir uma revisão do preço do nosso apartamento no Edifício Refuge para o Réveillon. Hoje ele está como a opção mais barata do mapa da região para a virada, mesmo sendo a data de maior procura do ano.
+
+📍 Localização privilegiada
+
+O imóvel fica na  Ponta Verde, uma das áreas mais procuradas de Maceió, principalmente na virada do ano:
+
+300 m da Praia de Pajuçara, uma das praias mais conhecidas de Maceió
+750 m da Cadeira Gigante, um dos principais pontos turísticos da cidade
+1,2 km da Roda Gigante, ponto turístico forte e local de queima de fogos na virada
+
+Ou seja, o …</p><div class="meta">DGS0508</div></div>
+<div class="quote"><div class="who">Balneário Piçarras · <b>Caroline Sorondo Vaghetti</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">22/09/2026 23:33:21</span></div><p>Taxa de limpeza correto 90,00
+E o imóvel em comparação tem 1 banheiro, enquanto o nosso tem 2</p><div class="meta">SLM0012</div></div>
+<div class="quote"><div class="who">São Paulo · <b>Roberta de Almeida Turra Vieira</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">23/09/2026 15:52:38</span></div><p>As diárias dos imóveis acima, está desconexa dos grandiosos shows que vão acontecer no Nubank Parque nas próximas semanas. Comparamos um por um, de acordo com os eventos e com os concorrentes, e os valores estão completamente fora do mercado, muito abaixo da concorrência! Peço por favor verificar e corrigir, sobretudo os shows a seguir; IRON MAIDEN (25/10 e 27/10), MARIAH CAREY (17/11 e 18/11), SEAL (28/11), ED SHEERAN (05/12 e 06/12), SLAYER (17/12), LIONEL RICHIE (19/12), RUSH (24/01/27 e 26/01/27), JACK JOHNSON (20/02/27) e XUXA (27/02/2027 e 28/02/2027)</p><div class="meta">AIM0406 · AIM0415 · TRO0154 · TPA0112 · IPR0410 · SOM1406 · VAS1009 · CEP0128 (+5)</div></div>
+<div class="quote"><div class="who">Brasília · <b>Driely Lohanne Constantino</b> <span style="color:var(--muted);font-weight:500;margin-left:8px">23/09/2026 17:07:34</span></div><p>Precificação fora da realidade, muitos distratos acontecendo por causa disso 
+Diárias em média de 90,00 - 130,00 
+Reclamações diárias de proprietários reclamando sobre os valores de diárias 
+Esses que coloquei de exemplo são poucos em vista de todos que tem essa falta de precificação adequada 
+Muitas unidades saindo por falta da rentabilidade adequada</p><div class="meta">COP0205 · GDP0010 · RJT0104 · EHS0117 · VPS0819</div></div></div>
+  </div>
+</div>
+
+<div class="footer">Fonte: Google Sheets (Publicar na Web · CSV) · Compilado por <b>Rayanne Oliveira</b> · BackOffice Franquias</div>
+
+</div></body></html>
