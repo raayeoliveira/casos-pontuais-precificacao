@@ -61,7 +61,14 @@ tr:hover td{background:#fafbfd}
 .quote .who b{color:var(--ink)}
 .quote p{font-size:13px;line-height:1.55;white-space:pre-wrap}
 .quote .meta{font-size:11px;color:var(--muted);margin-top:10px}
-.respostas td.fala{font-size:12.5px;color:var(--ink);line-height:1.55;white-space:pre-wrap;max-width:520px}
+.respostas td.fala{font-size:12.5px;color:var(--ink);line-height:1.55;max-width:520px}
+.respostas td.fala details{cursor:pointer}
+.respostas td.fala summary{list-style:none;color:var(--ink-2);position:relative;padding-right:70px}
+.respostas td.fala summary::-webkit-details-marker{display:none}
+.respostas td.fala summary::after{content:"ver mais";position:absolute;right:0;top:0;font-size:11px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.3px}
+.respostas td.fala details[open] summary::after{content:"recolher";color:var(--muted)}
+.respostas td.fala details[open] summary{color:var(--ink);font-weight:500;margin-bottom:8px}
+.respostas td.fala .fala-full{white-space:pre-wrap;color:var(--ink);padding:10px 12px;background:var(--strip);border-radius:6px;border:1px solid var(--border);font-size:12.5px;line-height:1.55}
 .respostas tr:hover td{background:#fafbfd}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .footer{color:var(--muted);font-size:12px;margin-top:26px;padding:18px 4px;text-align:center;border-top:1px solid var(--border)}
@@ -75,7 +82,7 @@ tr:hover td{background:#fafbfd}
   <div class="subtitle">Consolidação do formulário aberto às franqueadas</div>
   <div class="meta">
     <span><b>Rayanne Oliveira</b></span>
-    <span>Última atualização <b>24/09/2026 15:53</b></span>
+    <span>Última atualização <b>24/09/2026 15:54</b></span>
     <span><b>12</b> respostas</span>
     <span><b>5</b> franqueadas · <b>5</b> destinos · <b>≈37</b> imóveis</span>
   </div>
@@ -140,11 +147,11 @@ tr:hover td{background:#fafbfd}
       <th>Fala</th>
     </tr></thead>
     <tbody>
-<tr><td><b>Débora Renata Gomes Soares</b></td><td>Recife</td><td class="imv">GLN0805 · IAA502 · IAA503 · IAA504 · IAA1002 · IAA1003 · IAA1004 · PILB0701 · GOL1705 · BCM0403 · CAV0411</td><td class="fala">Diárias bases desalinhadas ao mercado (alta temporada no Nordeste) e diárias de feriado.
+<tr><td><b>Débora Renata Gomes Soares</b></td><td>Recife</td><td class="imv">GLN0805 · IAA502 · IAA503 · IAA504 · IAA1002 · IAA1003 · IAA1004 · PILB0701 · GOL1705 · BCM0403 · CAV0411</td><td class="fala"><details><summary>Diárias bases desalinhadas ao mercado (alta temporada no Nordeste) e diárias de feriado. Feriado 12/10, 02/11,…</summary><div class="fala-full">Diárias bases desalinhadas ao mercado (alta temporada no Nordeste) e diárias de feriado.
 Feriado 12/10, 02/11, 15/11, 08/12, 25/12, 31/12, além do carnaval.
-Somos a única plataforma de menor valor no mercado em Recife.</td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">MIN0709</td><td class="fala">Imóvel na Ponta Verde, na melhor localização do ano novo, próximo as festas e aos fogos com diária de 700,00 para 4 pessoas no ano novo, o proprietário irá surtar!</td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">MIN0709</td><td class="fala">Olá, time! Tudo bem?
+Somos a única plataforma de menor valor no mercado em Recife.</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">MIN0709</td><td class="fala"><details><summary>Imóvel na Ponta Verde, na melhor localização do ano novo, próximo as festas e aos fogos com diária de 700,00 p…</summary><div class="fala-full">Imóvel na Ponta Verde, na melhor localização do ano novo, próximo as festas e aos fogos com diária de 700,00 para 4 pessoas no ano novo, o proprietário irá surtar!</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">MIN0709</td><td class="fala"><details><summary>Olá, time! Tudo bem?  Quero pedir uma revisão da estratégia de preço do imóvel MIN0709 para o Réveillon. O pro…</summary><div class="fala-full">Olá, time! Tudo bem?
 
 Quero pedir uma revisão da estratégia de preço do imóvel MIN0709 para o Réveillon. O proprietário está insatisfeito, e o valor praticado está bem abaixo do que se vê na região.
 
@@ -182,12 +189,12 @@ O apartamento foi reformado recentemente, o que deveria aumentar o seu valor em 
 
 O proprietário está insatisfeito. Ele entende que o imóvel está sendo desvalorizado em relação aos vizinhos, mesmo tendo investido na reforma e estando em uma das localizações mais fortes da cidade, justamente na data de maior procura do ano e também em todo período de alta temporada.
 
-Dessa forma, peço revisão na precificação desse imóvel nos meses de alta temporada e se podemos tomar alguma providência em relação a reserva efetuada com valor praticado bem abaixo da média da região.</td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">VZA0106</td><td class="fala">Diária do período do ano novo com pacote de 3500 ( bruto sem descontos )  no ano novo, no mesmo prédio um apartamento similar está por 4500.  O apartamento é praticamente na praia, com fogos na varanda. Precisa subir a diária, ainda terá  O Reveillon Celebration com Luan Santana, Menos é Mais e Zé Vaqueiro.</td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">VZA0603</td><td class="fala">Diária do período do ano novo com pacote de 4500 ( bruto sem descontos )  no ano novo.  O apartamento é praticamente na praia, com fogos na varanda. Precisa subir a diária, ainda terá  a maior festa privada de Maceio, o  Reveillon Celebration com Luan Santana, Menos é Mais e Zé Vaqueiro.</td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">LOE0315</td><td class="fala">TArifa ano novo fora do preço ideal, Apartamento beira mar, ao lado do maior reveillon privado de Maceio, com Luan Santana, Menos é Mais e Zé vaqueiro. Alta demanda por acesso a festa a menos de 1km do apartamento.</td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">TAU0204</td><td class="fala">Apartamento em condomínio beira mar, em frente a queima de fogos da orla no ano novo, muita oportunidade de melhoria do tarifário do ano novo,</td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">LOE0502</td><td class="fala">Olá, time! Tudo bem?
+Dessa forma, peço revisão na precificação desse imóvel nos meses de alta temporada e se podemos tomar alguma providência em relação a reserva efetuada com valor praticado bem abaixo da média da região.</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">VZA0106</td><td class="fala"><details><summary>Diária do período do ano novo com pacote de 3500 ( bruto sem descontos )  no ano novo, no mesmo prédio um apar…</summary><div class="fala-full">Diária do período do ano novo com pacote de 3500 ( bruto sem descontos )  no ano novo, no mesmo prédio um apartamento similar está por 4500.  O apartamento é praticamente na praia, com fogos na varanda. Precisa subir a diária, ainda terá  O Reveillon Celebration com Luan Santana, Menos é Mais e Zé Vaqueiro.</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">VZA0603</td><td class="fala"><details><summary>Diária do período do ano novo com pacote de 4500 ( bruto sem descontos )  no ano novo.  O apartamento é pratic…</summary><div class="fala-full">Diária do período do ano novo com pacote de 4500 ( bruto sem descontos )  no ano novo.  O apartamento é praticamente na praia, com fogos na varanda. Precisa subir a diária, ainda terá  a maior festa privada de Maceio, o  Reveillon Celebration com Luan Santana, Menos é Mais e Zé Vaqueiro.</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">LOE0315</td><td class="fala"><details><summary>TArifa ano novo fora do preço ideal, Apartamento beira mar, ao lado do maior reveillon privado de Maceio, com …</summary><div class="fala-full">TArifa ano novo fora do preço ideal, Apartamento beira mar, ao lado do maior reveillon privado de Maceio, com Luan Santana, Menos é Mais e Zé vaqueiro. Alta demanda por acesso a festa a menos de 1km do apartamento.</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">TAU0204</td><td class="fala"><details><summary>Apartamento em condomínio beira mar, em frente a queima de fogos da orla no ano novo, muita oportunidade de me…</summary><div class="fala-full">Apartamento em condomínio beira mar, em frente a queima de fogos da orla no ano novo, muita oportunidade de melhoria do tarifário do ano novo,</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">LOE0502</td><td class="fala"><details><summary>Olá, time! Tudo bem?  Quero pedir uma revisão do preço do LOE0502 para o Réveillon. Hoje ele está como a opção…</summary><div class="fala-full">Olá, time! Tudo bem?
 
 Quero pedir uma revisão do preço do LOE0502 para o Réveillon. Hoje ele está como a opção mais barata da região para a virada, mesmo sendo a data de maior procura do ano.
 
@@ -216,8 +223,8 @@ O preço original era R$ 5.540, e com o desconto caiu para R$ 4.469 (cerca de R$
 Peço que o time:
 
 Revise o preço do LOE0502 para o Réveillon, deixando mais perto da média da região 
-Reavalie o desconto aplicado, já que na virada a procura é alta e o desconto não é necessário para vender.</td></tr>
-<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">DGS0508</td><td class="fala">Olá, time! Tudo bem?
+Reavalie o desconto aplicado, já que na virada a procura é alta e o desconto não é necessário para vender.</div></details></td></tr>
+<tr><td><b>Naihana Loyola Andriani</b></td><td>Maceió</td><td class="imv">DGS0508</td><td class="fala"><details><summary>Olá, time! Tudo bem?  Quero pedir uma revisão do preço do nosso apartamento no Edifício Refuge para o Réveillo…</summary><div class="fala-full">Olá, time! Tudo bem?
 
 Quero pedir uma revisão do preço do nosso apartamento no Edifício Refuge para o Réveillon. Hoje ele está como a opção mais barata do mapa da região para a virada, mesmo sendo a data de maior procura do ano.
 
@@ -241,15 +248,15 @@ Exemplo: o anúncio &quot;Ponta Verde 270 metros do Mar&quot; (1 quarto) está p
 Isso quer dizer que:
 
 O Refuge é o mais barato de todo o mapa
-Está cerca de 31% abaixo da média da região</td></tr>
-<tr><td><b>Caroline Sorondo Vaghetti</b></td><td>Balneário Piçarras</td><td class="imv">SLM0012</td><td class="fala">Taxa de limpeza correto 90,00
-E o imóvel em comparação tem 1 banheiro, enquanto o nosso tem 2</td></tr>
-<tr><td><b>Roberta de Almeida Turra Vieira</b></td><td>São Paulo</td><td class="imv">AIM0406 · AIM0415 · TRO0154 · TPA0112 · IPR0410 · SOM1406 · VAS1009 · CEP0128 · CEP0222 · CEP0225 · CEP0226 · CEP00427 · CEP00428</td><td class="fala">As diárias dos imóveis acima, está desconexa dos grandiosos shows que vão acontecer no Nubank Parque nas próximas semanas. Comparamos um por um, de acordo com os eventos e com os concorrentes, e os valores estão completamente fora do mercado, muito abaixo da concorrência! Peço por favor verificar e corrigir, sobretudo os shows a seguir; IRON MAIDEN (25/10 e 27/10), MARIAH CAREY (17/11 e 18/11), SEAL (28/11), ED SHEERAN (05/12 e 06/12), SLAYER (17/12), LIONEL RICHIE (19/12), RUSH (24/01/27 e 26/01/27), JACK JOHNSON (20/02/27) e XUXA (27/02/2027 e 28/02/2027)</td></tr>
-<tr><td><b>Driely Lohanne Constantino</b></td><td>Brasília</td><td class="imv">COP0205 · GDP0010 · RJT0104 · EHS0117 · VPS0819</td><td class="fala">Precificação fora da realidade, muitos distratos acontecendo por causa disso 
+Está cerca de 31% abaixo da média da região</div></details></td></tr>
+<tr><td><b>Caroline Sorondo Vaghetti</b></td><td>Balneário Piçarras</td><td class="imv">SLM0012</td><td class="fala"><details><summary>Taxa de limpeza correto 90,00 E o imóvel em comparação tem 1 banheiro, enquanto o nosso tem 2</summary><div class="fala-full">Taxa de limpeza correto 90,00
+E o imóvel em comparação tem 1 banheiro, enquanto o nosso tem 2</div></details></td></tr>
+<tr><td><b>Roberta de Almeida Turra Vieira</b></td><td>São Paulo</td><td class="imv">AIM0406 · AIM0415 · TRO0154 · TPA0112 · IPR0410 · SOM1406 · VAS1009 · CEP0128 · CEP0222 · CEP0225 · CEP0226 · CEP00427 · CEP00428</td><td class="fala"><details><summary>As diárias dos imóveis acima, está desconexa dos grandiosos shows que vão acontecer no Nubank Parque nas próxi…</summary><div class="fala-full">As diárias dos imóveis acima, está desconexa dos grandiosos shows que vão acontecer no Nubank Parque nas próximas semanas. Comparamos um por um, de acordo com os eventos e com os concorrentes, e os valores estão completamente fora do mercado, muito abaixo da concorrência! Peço por favor verificar e corrigir, sobretudo os shows a seguir; IRON MAIDEN (25/10 e 27/10), MARIAH CAREY (17/11 e 18/11), SEAL (28/11), ED SHEERAN (05/12 e 06/12), SLAYER (17/12), LIONEL RICHIE (19/12), RUSH (24/01/27 e 26/01/27), JACK JOHNSON (20/02/27) e XUXA (27/02/2027 e 28/02/2027)</div></details></td></tr>
+<tr><td><b>Driely Lohanne Constantino</b></td><td>Brasília</td><td class="imv">COP0205 · GDP0010 · RJT0104 · EHS0117 · VPS0819</td><td class="fala"><details><summary>Precificação fora da realidade, muitos distratos acontecendo por causa disso  Diárias em média de 90,00 - 130,…</summary><div class="fala-full">Precificação fora da realidade, muitos distratos acontecendo por causa disso 
 Diárias em média de 90,00 - 130,00 
 Reclamações diárias de proprietários reclamando sobre os valores de diárias 
 Esses que coloquei de exemplo são poucos em vista de todos que tem essa falta de precificação adequada 
-Muitas unidades saindo por falta da rentabilidade adequada</td></tr>
+Muitas unidades saindo por falta da rentabilidade adequada</div></details></td></tr>
     </tbody>
   </table>
   </div>
